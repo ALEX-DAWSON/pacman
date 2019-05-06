@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ <html>
+  <body>
+   <h1>Hello World</h1>
+   <p>Site by Alex Dawson</p>
+   <br>
+  <script>
+   // --------------------------------------------------block for canvas setup
+    var canvas = document.createElement('canvas');
+    canvas.width = 800;
+    canvas.height = 500;
+    var context = canvas.getContext('2d');
+    document.body.appendChild(canvas);
+   // --------------------------------------------------Optional to colour the canvas
+    context.fillStyle="blue";
+    context.fillRect(0,0,800,500);
+    context.fillStyle="white";
+    context.fillRect(1,1,800-2,500-2);
+    var img = new Image();
+    img.src = "stickman1.png"
+    img.onload = function (){context.drawImage(img, 100, 110);};
+    //context.fillStyle="red";
+    context.fillRect(100, 110, 100, 100);
+   // --------------------------------------------------
+  </script>
+ </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>Hello World<br>
+<script>
+// --------------------------------------------------block for canvas setup
+var canvas = document.createElement('canvas');
+canvas.width = 800;
+canvas.height = 500;
+var context = canvas.getContext('2d');
+document.body.appendChild(canvas);
+// --------------------------------------------------Optional to colour the canvas
+context.beginPath();
+context.fillStyle="blue";
+context.fillRect(0,0,800,500);
+context.stroke();
+context.beginPath();
+context.fillStyle="white";
+context.fillRect(1,1,800-2,500-2);
+context.stroke();
+// --------------------------------------------------
+/***************************************************
+The DisplayFrames function facilitates animation...
+it calls NextFrame every 60 milliseconds
+***************************************************/
+function DisplayFrames() {setInterval(NextFrame, 60);}
+var HorizontalLocation=0;
+function NextFrame()
+{
+  var img = new Image();
+  HorizontalLocation+=5;
+  if (HorizontalLocation>700) {HorizontalLocation=1;}
+  switch (HorizontalLocation % 3 + 1)
+  {
+  case 1: img.src = "Stickman1.png";break;
+  case 2: img.src = "Stickman2.png";break;
+  // case 3: img.src = "Stickman3.png";break;
+  default:
+  }
+  {
+  context.drawImage(img, HorizontalLocation, 80);
+};
+}
+DisplayFrames();
+</script>
+</body>
+</html>
